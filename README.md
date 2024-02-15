@@ -4,7 +4,8 @@
 * [Cuenta de AWS](https://aws.amazon.com/free) y las [credenciales asociadas](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) que permiten crear recursos.
 
 ## Configuración de credenciales de AWS
-Una vez creado el usuario de aws con los permisos necesarios ![Permisos de IAM](https://terraformblockstellart.s3.us-east-2.amazonaws.com/Permissions.jpg "")
+Una vez creado el usuario de aws con los permisos necesarios  
+![Permisos de IAM](https://terraformblockstellart.s3.us-east-2.amazonaws.com/Permissions.jpg "")
 > Para este ejemplo utilizaremos los permisos de administrador.
 
 Ahora generamos las accessKeys y las podemos utilizar desde variables de entorno:
@@ -28,12 +29,12 @@ __Nota__: hay diferentes formas de configurar las variables:
 7. -var and -var-file
 
 ## Secciones del código
-Esta sección indica que va a requerir terraform para trabajar con aws
-![terraform](https://terraformblockstellart.s3.us-east-2.amazonaws.com/Terraform+aws.jpg "")
-Proporciona mas información para acceder y crear los recurso de mi infraestructura en aws
-![terraform region](https://terraformblockstellart.s3.us-east-2.amazonaws.com/terraform+region.jpg "")
-Especifica el recurso que se va a crear (```aws_instance```) y el nombre que va a tomar dentro de terraform (```blockstellart```)
-![terraform resource](https://terraformblockstellart.s3.us-east-2.amazonaws.com/terraform+resource.jpg "")
+Esta sección indica que va a requerir terraform para trabajar con aws  
+![terraform](https://terraformblockstellart.s3.us-east-2.amazonaws.com/Terraform+aws.jpg "")  
+Proporciona mas información para acceder y crear los recurso de mi infraestructura en aws  
+![terraform region](https://terraformblockstellart.s3.us-east-2.amazonaws.com/terraform+region.jpg "")  
+Especifica el recurso que se va a crear (```aws_instance```) y el nombre que va a tomar dentro de terraform (```blockstellart```)  
+![terraform resource](https://terraformblockstellart.s3.us-east-2.amazonaws.com/terraform+resource.jpg "")  
 
 > **Importante**: El ID de AMI utilizado en esta configuración es específico de la región us-east-2. Si desea utilizar una región diferente, debe buscar el ID correspendiente
 
@@ -51,33 +52,31 @@ cd terraform-blockstellart
 ![Terraform init](https://terraformblockstellart.s3.us-east-2.amazonaws.com/t1-c.jpg "")
 
 2. Da formato a los archivos, así no importa si los desarrolladores añadieron por error algun espacio o tab, terraform le da un formato
-``terraform fmt``
-![before](https://terraformblockstellart.s3.us-east-2.amazonaws.com/before-f.jpg "")
-![After](https://terraformblockstellart.s3.us-east-2.amazonaws.com/after-t.jpg "")
+``terraform fmt``  
+![before](https://terraformblockstellart.s3.us-east-2.amazonaws.com/before-f.jpg "")  
+![After](https://terraformblockstellart.s3.us-east-2.amazonaws.com/after-t.jpg "")  
 
 3. Mustra que es lo que vamos a  crear
 ``terraform plan``
 ![terraform plan](https://terraformblockstellart.s3.us-east-2.amazonaws.com/t-plan.jpg "")
 4. Aplicara los cambios mostrados con el comando anterior y además tiene dos formas de usarlo
-    1. ``terraform apply``
+    1. ``terraform apply`` **Solicita confirmación para ejecutarse**  
     ![terraform apply](https://terraformblockstellart.s3.us-east-2.amazonaws.com/t-apply.jpg "")
-    ![terraform confirm](https://terraformblockstellart.s3.us-east-2.amazonaws.com/t-apply-confirm.jpg "")
-    Solicita confirmación para ejecutarse
-    2.  ``terraform apply -auto-approve``
+    ![terraform confirm](https://terraformblockstellart.s3.us-east-2.amazonaws.com/t-apply-confirm.jpg "")  
+    3.  ``terraform apply -auto-approve``
     No realiza ninguna confirmación y ejecuta el comando para crear la infraestructura
 
+5. Creación de instancia  
+![creating](https://terraformblockstellart.s3.us-east-2.amazonaws.com/t-create.jpg "")  
+![aws](https://terraformblockstellart.s3.us-east-2.amazonaws.com/instance+aws.jpg "")  
+![apply complete](https://terraformblockstellart.s3.us-east-2.amazonaws.com/apply+compleate+with+outputs.jpg "")  
 
-![creating](https://terraformblockstellart.s3.us-east-2.amazonaws.com/t-create.jpg "")
-![aws](https://terraformblockstellart.s3.us-east-2.amazonaws.com/instance+aws.jpg "")
-
-![apply complete](https://terraformblockstellart.s3.us-east-2.amazonaws.com/apply+compleate+with+outputs.jpg "")
-
-5. Para eliminar la instancia ec2, ejecutamos:
+6. Para eliminar la instancia ec2, ejecutamos:
 ```terraform destroy```
 ![destroy](https://terraformblockstellart.s3.us-east-2.amazonaws.com/destroy.jpg "")
 Confirmamos la accion
 ![destroy confirm](https://terraformblockstellart.s3.us-east-2.amazonaws.com/destroy+confirm.jpg "")
 
-6. Proceso completado
+7. Proceso completado
 ![destroy confirm](https://terraformblockstellart.s3.us-east-2.amazonaws.com/destroy+complete.jpg "")
 ![instance aws](https://terraformblockstellart.s3.us-east-2.amazonaws.com/instance+aws.jpg "")
